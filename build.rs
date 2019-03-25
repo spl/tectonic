@@ -68,6 +68,7 @@ fn main() {
         "-Wno-unused-parameter",
         "-Wno-implicit-fallthrough",
         "-Wno-sign-compare",
+        "-Wno-unknown-pragmas",
         "-Werror",
         "-std=gnu11",
     ];
