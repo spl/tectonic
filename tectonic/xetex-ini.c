@@ -2959,7 +2959,7 @@ load_fmt_file(void)
 
     undump_things(hyf_distance[1], j);
     undump_things(hyf_num[1], j);
-    undump_upper_check_things(MAX_TRIE_OP, hyf_next[1], j);
+    undump_things(hyf_next[1], j);
 
     for (k = 0; k <= BIGGEST_LANG; k++)
         trie_used[k] = 0;
