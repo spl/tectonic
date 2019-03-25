@@ -160,7 +160,7 @@ XeTeXFontMgr_Mac::searchForHostPlatformFonts(const std::string& name)
         return;
     }
 
-    int hyph = name.find('-');
+    size_t hyph = name.find('-');
     if (hyph > 0 && hyph < name.length() - 1) {
         std::string family(name.begin(), name.begin() + hyph);
         CFStringRef familyStr = CFStringCreateWithCString(kCFAllocatorDefault, family.c_str(), kCFStringEncodingUTF8);
