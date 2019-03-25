@@ -316,7 +316,7 @@ typedef int32_t internal_font_number;
 typedef int32_t font_index;
 typedef int32_t nine_bits; /* range: 0 .. 0x1FF */
 typedef int32_t trie_pointer;
-typedef unsigned short trie_opcode;
+typedef uint16_t trie_opcode;
 typedef unsigned short hyph_pointer;
 typedef int32_t save_pointer;
 

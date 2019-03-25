@@ -352,7 +352,7 @@ static trie_pointer trie_min[65536];
 static trie_pointer trie_max;
 
 #define NEG_TRIE_OP_SIZE -35111L
-#define MAX_TRIE_OP 65535L
+#define MAX_TRIE_OP UINT16_MAX
 
 static int32_t _trie_op_hash_array[TRIE_OP_SIZE - NEG_TRIE_OP_SIZE + 1];
 #define TRIE_OP_HASH(i) _trie_op_hash_array[(i) - NEG_TRIE_OP_SIZE]
