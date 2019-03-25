@@ -386,7 +386,10 @@ countFeatures(XeTeXFont font, hb_tag_t script, hb_tag_t language)
         unsigned int scriptIndex, langIndex = 0;
         hb_tag_t tableTag = i == 0 ? HB_OT_TAG_GSUB : HB_OT_TAG_GPOS;
         if (hb_ot_layout_table_find_script(face, tableTag, script, &scriptIndex)) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             if (hb_ot_layout_script_find_language(face, tableTag, scriptIndex, language, &langIndex) || language == 0) {
+#pragma clang diagnostic pop
                 rval += hb_ot_layout_language_get_feature_tags(face, tableTag, scriptIndex, langIndex, 0, NULL, NULL);
             }
         }
@@ -406,7 +409,10 @@ getIndFeature(XeTeXFont font, hb_tag_t script, hb_tag_t language, unsigned int i
         unsigned int scriptIndex, langIndex = 0;
         hb_tag_t tableTag = i == 0 ? HB_OT_TAG_GSUB : HB_OT_TAG_GPOS;
         if (hb_ot_layout_table_find_script(face, tableTag, script, &scriptIndex)) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
             if (hb_ot_layout_script_find_language(face, tableTag, scriptIndex, language, &langIndex) || language == 0) {
+#pragma clang diagnostic pop
                 unsigned int featCount = hb_ot_layout_language_get_feature_tags(face, tableTag, scriptIndex, langIndex, 0, NULL, NULL);
                 hb_tag_t* featList = (hb_tag_t*) xcalloc(featCount, sizeof(hb_tag_t*));
                 hb_ot_layout_language_get_feature_tags(face, tableTag, scriptIndex, langIndex, 0, &featCount, featList);
@@ -731,7 +737,10 @@ static hb_unicode_funcs_t*
 _get_unicode_funcs(void)
 {
     static hb_unicode_funcs_t* ufuncs = hb_unicode_funcs_create(hb_icu_get_unicode_funcs());
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     hb_unicode_funcs_set_decompose_compatibility_func(ufuncs, _decompose_compat, NULL, NULL);
+#pragma clang diagnostic pop
     return ufuncs;
 }
 
@@ -989,7 +998,10 @@ initGraphiteBreaking(XeTeXLayoutEngine engine, const uint16_t* txtPtr, int txtLe
 {
     hb_face_t* hbFace = hb_font_get_face(engine->font->getHbFont());
     gr_face* grFace = hb_graphite2_face_get_gr_face(hbFace);
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     gr_font* grFont = hb_graphite2_font_get_gr_font(engine->font->getHbFont());
+#pragma clang diagnostic pop
     if (grFace != NULL && grFont != NULL) {
         if (grSegment != NULL) {
             gr_seg_destroy(grSegment);

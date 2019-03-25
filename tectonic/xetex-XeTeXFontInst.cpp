@@ -261,7 +261,10 @@ _get_font_funcs(void)
 {
     static hb_font_funcs_t* funcs = hb_font_funcs_create();
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
     hb_font_funcs_set_glyph_func                (funcs, _get_glyph, NULL, NULL);
+#pragma clang diagnostic pop
     hb_font_funcs_set_glyph_h_advance_func      (funcs, _get_glyph_h_advance, NULL, NULL);
     hb_font_funcs_set_glyph_v_advance_func      (funcs, _get_glyph_v_advance, NULL, NULL);
     hb_font_funcs_set_glyph_h_origin_func       (funcs, _get_glyph_h_origin, NULL, NULL);
