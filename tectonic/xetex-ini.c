@@ -266,20 +266,6 @@ int32_t *hyph_list;
 hyph_pointer *hyph_link;
 int32_t hyph_count;
 int32_t hyph_next;
-trie_opcode trie_used[256];
-unsigned char trie_op_lang[TRIE_OP_SIZE + 1];
-trie_opcode trie_op_val[TRIE_OP_SIZE + 1];
-int32_t trie_op_ptr;
-trie_opcode max_op_used;
-packed_UTF16_code *trie_c;
-trie_opcode *trie_o;
-trie_pointer *trie_l;
-trie_pointer *trie_r;
-trie_pointer trie_ptr;
-trie_pointer *trie_hash;
-bool *trie_taken;
-trie_pointer trie_min[65536];
-trie_pointer trie_max;
 bool trie_not_ready;
 scaled_t best_height_plus_depth;
 internal_font_number main_f;
@@ -349,6 +335,21 @@ int32_t insert_penalties;
 bool output_active;
 
 uint16_t _xeq_level_array[EQTB_SIZE - INT_BASE + 1];
+
+static trie_opcode trie_used[256];
+static unsigned char trie_op_lang[TRIE_OP_SIZE + 1];
+static trie_opcode trie_op_val[TRIE_OP_SIZE + 1];
+static int32_t trie_op_ptr;
+static trie_opcode max_op_used;
+static packed_UTF16_code *trie_c;
+static trie_opcode *trie_o;
+static trie_pointer *trie_l;
+static trie_pointer *trie_r;
+static trie_pointer trie_ptr;
+static trie_pointer *trie_hash;
+static bool *trie_taken;
+static trie_pointer trie_min[65536];
+static trie_pointer trie_max;
 
 #define NEG_TRIE_OP_SIZE -35111L
 #define MAX_TRIE_OP 65535L
