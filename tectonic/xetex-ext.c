@@ -1165,7 +1165,10 @@ make_font_def(int32_t f)
         if (CFDictionaryGetValue(attributes, kCTVerticalFormsAttributeName))
             flags |= XDV_FLAG_VERTICAL;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wcast-qual"
         color = (CGColorRef) CFDictionaryGetValue(attributes, kCTForegroundColorAttributeName);
+#pragma clang diagnostic pop
         if (color)
             rgba = cgColorToRGBA32(color);
 
