@@ -34,6 +34,7 @@ fn main() {
     let mut cppcfg = cc::Build::new();
     let cflags = [
         "-Wall",
+        "-Wno-unknown-pragmas",
         "-Wcast-qual",
         "-Wdate-time",
         "-Wendif-labels",
@@ -68,7 +69,6 @@ fn main() {
         "-Wno-unused-parameter",
         "-Wno-implicit-fallthrough",
         "-Wno-sign-compare",
-        "-Wno-unknown-pragmas",
         "-Werror",
         "-std=gnu11",
     ];
