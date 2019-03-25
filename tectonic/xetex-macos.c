@@ -494,7 +494,7 @@ findDictionaryInArray(CFArrayRef array, const void* nameKey, const char* name, i
     if (array) {
         CFStringRef itemName;
         CFIndex i;
-        itemName = CFStringCreateWithBytes(NULL, (UInt8 *) name, nameLength,
+        itemName = CFStringCreateWithBytes(NULL, (const UInt8 *) name, nameLength,
                                            kCFStringEncodingUTF8, false);
         for (i = 0; i < CFArrayGetCount(array); i++) {
             CFDictionaryRef item = CFArrayGetValueAtIndex(array, i);
